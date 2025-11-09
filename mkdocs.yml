@@ -1,0 +1,97 @@
+site_name: PyProxyTools
+theme:
+  name: material
+  favicon: assets/pyproxy.png
+  logo: assets/pyproxy.png
+  icon:
+    repo: fontawesome/brands/gitlab
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.tabs.link
+    - content.code.annotateode
+    - content.tabs
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+  palette:
+    - scheme: default
+      primary: black
+      accent: red
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: red
+      toggle:
+        icon: material/brightness-auto 
+        name: Switch to light mode
+
+repo_url: https://github.com/pyproxytools/pyproxy-docs
+repo_name: pyproxytools/pyproxy-docs
+edit_uri: edit/main/docs/
+
+extra:
+  homepage: https://pyproxytools.github.io/pyproxy-docs/
+  base_url: https://pyproxytools.github.io/pyproxy-docs/
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/pyproxytools/
+  generator: false
+
+plugins:
+  - search
+  - tags
+  - macros
+  - git-authors
+  - git-revision-date-localized:
+      type: datetime
+      locale: fr
+      timezone: Europe/Paris
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji
+
+
+nav:
+  - Welcome: index.md
+  - Installation:
+    - From Source: installation/from_source.md
+    - From Package: installation/from_package.md
+    - From Docker: installation/from_docker.md
+  - Configuration:
+    - From an .ini file: configuration/from_ini_file.md
+    - With command argument: configuration/command_argument.md
+    - Environment variables: configuration/env_var.md
+    - CA certificates: configuration/ca_certificates.md
+  - Features:
+    - Logging access: features/logging_access.md
+    - Filtering requets: features/filtering_requests.md
+    - Shortcuts: features/shortcuts.md
+    - Custom headers: features/custom_headers.md
+    - SSL Inspection: features/ssl_inspection.md
+    - Custom 403 page: features/custom_403_page.md
+    - Monitoring: features/monitoring.md
+    - API: features/api.md
+    - Proxy chaining: features/proxy_chaining.md
+    - Authorized IPs: features/authorized_ips.md
+    - Custom log format: features/custom_log_format.md

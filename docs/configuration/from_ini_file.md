@@ -1,0 +1,58 @@
+An example configuration file is provided `./config.ini.example`. 
+You can copy it and call it `config.ini`. By default, the program will read the `config.ini` file located at the root of the project. The path can be changed with the `-f` argument.
+
+!!! warning
+    Please note: Command line configurations take precedence over the configuration 
+
+## Example of a configuration file
+
+```ini
+[Server]
+host = 0.0.0.0
+port = 8080
+
+[Logging]
+debug = false
+access_log = ./logs/access.log
+block_log = ./logs/block.log
+no_logging_access = false
+no_logging_block = false
+console_format = %(asctime)s - %(levelname)s - %(message)s
+datefmt = %d/%m/%Y %H:%M:%S
+
+[Files]
+html_403 = assets/403.html
+
+[Filtering]
+no_filter = false
+filter_mode = local
+blocked_sites = config/blocked_sites.txt
+blocked_url = config/blocked_url.txt
+
+[Options]
+shortcuts = config/shortcuts.txt
+custom_header = config/custom_header.json
+authorized_ips = config/authorized_ips.txt
+
+[Security]
+ssl_inspect = false
+inspect_ca_cert = certs/ca/cert.pem
+inspect_ca_key = certs/ca/key.pem
+inspect_certs_folder = certs/
+cancel_inspect = config/cancel_inspect.txt
+
+[Monitoring]
+flask_port = 5000
+flask_pass = password
+
+[Proxy]
+proxy_enable = false
+proxy_host = 127.0.0.1
+proxy_port = 8081
+```
+
+!!! warning
+    In the `slim` version, the `Monitoring`, `Custom header` and `Shortcuts` parts are not included
+
+## With Docker image
+If you want to use the configuration file with the Docker image. You must put it in the container at the following path: `/app/config.ini` by default
