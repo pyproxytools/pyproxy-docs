@@ -1,5 +1,8 @@
 name: Deploy MkDocs site
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
@@ -13,7 +16,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Deploy docs
-        uses: mhausenblas/mkdocs-deploy-gh-pages@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Build and deploy MkDocs site
+        run: mkdocs gh-deploy --force
